@@ -1,0 +1,38 @@
+{
+    "Photography": {
+        "name": "Photography",
+        "description": "",
+        "category": "Art/Creative"
+    },
+    "Painting/Art": {
+        "name": "Painting/Art",
+        "description": "",
+        "category": "Art/Creative"
+    },
+    "Writing/Journaling": {
+        "name": "Writing/Journaling",
+        "description": "",
+        "category": "Art/Creative"
+    },
+    "Bullet Journaling": {
+        "name": "Bullet Journaling",
+        "description": "",
+        "category": "Art/Creative"
+    },
+    "Dance": {
+        "name": "Dance",
+        "description": "",
+        "category": "Art/Creative"
+    },
+    "Singing": {
+        "name": "Singing",
+        "description": "",
+        "category": "Art/Creative"
+    },
+
+    "Basketball": {
+        "name": "Basketball",
+        "description": "",
+        "category": "Traditional Sports"
+    }
+}
