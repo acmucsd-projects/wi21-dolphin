@@ -32,5 +32,71 @@
             "Swimming",
             "Mountain Climbing"
         ]
+    },
+    "Recreational Activities": {
+        "name": "Recreational Activities",
+        "hobbies": [
+            "Hiking",
+            "Camping",
+            "Working Out",
+            "Yoga",
+            "Meditate"
+        ]
+    },
+    "Food": {
+        "name": "Food",
+        "hobbies": [
+            "Cooking",
+            "Baking"
+        ]
+    },
+    "Video Games": {
+        "name": "Video Games",
+        "hobbies": [
+            "League of Legends",
+            "Valorant",
+            "Overwatch",
+            "Genshin Impact",
+            "Among Us",
+            "MarioKart 8",
+            "Splatoon",
+            "Super Smash Bros",
+            "Minecraft",
+            "Stardew Valley",
+            "Terraria",
+            "Hollow Knight",
+            "Ori and the Blind Forest",
+            "Celeste",
+            "Hades",
+            "Enter the Gungeon",
+            "Forager",
+            "Enter the Spire",
+            "Legends of Runeterra",
+            "Hearthstone",
+            "Shadowverse"
+        ]
+    },
+    "Board/Tabletop Games": {
+        "name": "Board/Tabletop Games",
+        "hobbies": [
+            "Settlers of Catan",
+            "Chess",
+            "Go",
+            "DnD",
+            "Monopoly",
+            "Mahjong",
+            "Poker",
+            "Uno"
+        ]
+    },
+    "Media/Consumption": {
+        "name": "Media/Consumption",
+        "hobbies": [
+            "TV Shows",
+            "Books",
+            "Anime",
+            "Manga",
+            "Movies"
+        ]
     }
 }
