@@ -1,38 +1,36 @@
 {
-    "Photography": {
-        "name": "Photography",
-        "description": "",
-        "category": "Art/Creative"
+    "Art/Creative": {
+        "name": "Art/Creative",
+        "hobbies": [
+            "Photography",
+            "Painting/Art",
+            "Writing/Journaling",
+            "Bullet Journaling",
+            "Dance",
+            "Singing"
+        ]
     },
-    "Painting/Art": {
-        "name": "Painting/Art",
-        "description": "",
-        "category": "Art/Creative"
-    },
-    "Writing/Journaling": {
-        "name": "Writing/Journaling",
-        "description": "",
-        "category": "Art/Creative"
-    },
-    "Bullet Journaling": {
-        "name": "Bullet Journaling",
-        "description": "",
-        "category": "Art/Creative"
-    },
-    "Dance": {
-        "name": "Dance",
-        "description": "",
-        "category": "Art/Creative"
-    },
-    "Singing": {
-        "name": "Singing",
-        "description": "",
-        "category": "Art/Creative"
-    },
-
-    "Basketball": {
-        "name": "Basketball",
-        "description": "",
-        "category": "Traditional Sports"
+    "Traditional Sports": {
+        "name": "Traditional Sports",
+        "hobbies": [
+            "Running/Track",
+            "Basketball",
+            "Soccer",
+            "Golf",
+            "Volleyball",
+            "Lacrosse",
+            "Cross Country",
+            "Rugby",
+            "Cricket",
+            "Hockey",
+            "Field Hockey",
+            "Ultimate Frisbee",
+            "Dirt Biking",
+            "Skateboarding",
+            "Skiing",
+            "Surfing",
+            "Swimming",
+            "Mountain Climbing"
+        ]
     }
 }
