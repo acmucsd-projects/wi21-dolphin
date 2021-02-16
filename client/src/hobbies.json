@@ -1,5 +1,5 @@
-{
-    "Art/Creative": {
+[
+    {
         "name": "Art/Creative",
         "hobbies": [
             "Photography",
@@ -10,7 +10,7 @@
             "Singing"
         ]
     },
-    "Traditional Sports": {
+    {
         "name": "Traditional Sports",
         "hobbies": [
             "Running/Track",
@@ -33,7 +33,7 @@
             "Mountain Climbing"
         ]
     },
-    "Recreational Activities": {
+    {
         "name": "Recreational Activities",
         "hobbies": [
             "Hiking",
@@ -43,14 +43,14 @@
             "Meditate"
         ]
     },
-    "Food": {
+    {
         "name": "Food",
         "hobbies": [
             "Cooking",
             "Baking"
         ]
     },
-    "Video Games": {
+    {
         "name": "Video Games",
         "hobbies": [
             "League of Legends",
@@ -76,7 +76,7 @@
             "Shadowverse"
         ]
     },
-    "Board/Tabletop Games": {
+    {
         "name": "Board/Tabletop Games",
         "hobbies": [
             "Settlers of Catan",
@@ -89,7 +89,7 @@
             "Uno"
         ]
     },
-    "Media/Consumption": {
+    {
         "name": "Media/Consumption",
         "hobbies": [
             "TV Shows",
@@ -99,4 +99,4 @@
             "Movies"
         ]
     }
-}
+]
