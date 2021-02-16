@@ -1,5 +1,5 @@
-{
-    "Art/Creative": {
+[
+    {
         "name": "Art/Creative",
         "hobbies": [
             "Photography",
@@ -10,7 +10,7 @@
             "Singing"
         ]
     },
-    "Traditional Sports": {
+    {
         "name": "Traditional Sports",
         "hobbies": [
             "Running/Track",
@@ -33,4 +33,4 @@
             "Mountain Climbing"
         ]
     }
-}
+]
