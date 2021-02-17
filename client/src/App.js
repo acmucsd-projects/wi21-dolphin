@@ -1,21 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import HobbyArray from './hobbies.json';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
 
   return (
-    <div >
-      {HobbyArray.map((item, index) => {
-        return (
-          <div>
-            <h1 key={index}>{item.name}</h1>
-            {item.hobbies.map(hobby => <li>{hobby}</li>)}
-          </div>
-        )
-      }
-      )}
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 

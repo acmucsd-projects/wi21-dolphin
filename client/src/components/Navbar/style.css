@@ -1,0 +1,11 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap; 
+    border-bottom: 2px solid #AAAAAA;
+}
+
+.navbar-component {
+    padding-left: 15px;
+    padding-right: 15px;
+}
