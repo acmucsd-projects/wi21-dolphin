@@ -6,13 +6,13 @@ function Navbar() {
   return (
     <nav className="navbar">
         <p className="navbar-component">
-            <Link to="/">Hobbies Inc.</Link>
+            <Link className="link" to="/Home">Hobbies Inc.</Link>
         </p>
         <p className="navbar-component">
-            <Link to="/take-quiz">Take Quiz</Link>
+            <Link className="link" to="/take-quiz">Take Quiz</Link>
         </p>
         <p className="navbar-component">
-            <Link to="/profile">Profile</Link>
+            <Link className="link" to="/profile">Profile</Link>
         </p>
     </nav>
   )
