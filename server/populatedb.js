@@ -30,8 +30,6 @@ function hobbyCreate(name, category, cb) {
         name: name,
         description: "This has no description yet"
     });
-    
-    hobby.posts = [];
 
     hobby.save(function (err) {
         if (err) {

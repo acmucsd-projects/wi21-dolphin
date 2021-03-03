@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const usersRouter = require('./routes/users');
 const categoryRouter = require('./routes/categoryRoute')
 const hobbyRouter = require('./routes/hobbyRoute')
+const postRouter = require('./routes/postRoute')
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.get('/test', (req, res) => {
 app.use('/users', usersRouter);
 app.use('/categories', categoryRouter);
 app.use('/hobbies', hobbyRouter);
+app.use('/posts', postRouter);
 
 dotenv.config();
 
