@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
         <p className="navbar-component">
-            <Link className="link" to="/Home">Hobbies Inc.</Link>
+            <Link className="link" to="/">Hobbies Inc.</Link>
         </p>
         <p className="navbar-component">
             <Link className="link" to="/take-quiz">Take Quiz</Link>

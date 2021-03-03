@@ -14,17 +14,19 @@ function App() {
     return(
       item.hobbies.map((hobby, index) => {
         return(
-          <Route key={index} to={`/${ hobby }`}>
-            <HobbySub key={index} hobby={ hobby }/>
+          <Route key={index} exact path={`/${hobby}`}>
+            <HobbySub key={index} hobby={hobby}/>
           </Route>
         )
-    }))})
+      })
+    )
+  })
 
   return (
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/Home">
+        <Route exact path="/">
           <Home />
         </Route>
         {routeComponents}
