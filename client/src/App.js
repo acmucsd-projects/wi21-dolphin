@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import HobbyArray from './pages/Home/hobbies.json';
 import HobbySub from './components/HobbySub';
+import Profile from './pages/Profile';
+import TakeQuiz from './pages/Take-quiz';
 
 function App() {
   const routeComponents = HobbyArray.map(item => {
@@ -28,6 +30,12 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+        <Route exact path="/take-quiz">
+          <TakeQuiz />
         </Route>
         {routeComponents}
       </Switch>
