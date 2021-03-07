@@ -3,6 +3,11 @@
     justify-content: space-between;
     flex-wrap: wrap; 
     border-bottom: 2px solid #AAAAAA;
+    font-family: Chalkboard;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #111111;
 }
 
 .navbar-left {

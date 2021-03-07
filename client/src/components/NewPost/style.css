@@ -13,10 +13,12 @@
     align-items: center;
     height: 80vh;
     width: max-content;
+    font-family: Chalkboard;
+    font-style: normal;
+    font-weight: normal;
   }
   
   .title {
-    font-family: monospace;
     align-self: flex-start;
   }
   
@@ -30,7 +32,6 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    font-family: monospace;
     line-height: 1.5;
     color: #ffffff;
   }
@@ -41,7 +42,9 @@
     border: 3px solid #AAAAAA;
     box-sizing: border-box;
     width: 100%;
-    font-family: monospace;
+    font-family: Chalkboard;
+    font-style: normal;
+    font-weight: normal;
   }
   
   .post-body {
@@ -60,7 +63,8 @@
   }
   
   .submit {
-    font-family: monospace;
+    font-family: Chalkboard;
+    font-style: normal;
     font-size: 18px;
     font-weight: bold;
     background-color: #AAAAAA;

@@ -1,10 +1,11 @@
 import HobbyArray from './hobbies.json';
 import { Link } from 'react-router-dom';
+import './style.css';
 
 function Home() {
 
   return (
-    <div >
+    <div className="home-component">
       {HobbyArray.map((item, index) => {
           return (
             <div>
@@ -12,7 +13,7 @@ function Home() {
                 {item.hobbies.map(hobby => { 
                   return (
                     <li>
-                      <Link to={`/${hobby}`}>{hobby}</Link>
+                      <Link to={`/${hobby}`} style={{ textDecoration: 'none', color: "#111111" }}>{hobby}</Link>
                     </li>
                   )
                 })}
