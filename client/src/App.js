@@ -10,6 +10,7 @@ import HobbyArray from './pages/Home/hobbies.json';
 import HobbySub from './components/HobbySub';
 import Profile from './pages/Profile';
 import TakeQuiz from './pages/Take-quiz';
+import NewPost from './components/NewPost';
 
 function App() {
   const routeComponents = HobbyArray.map(item => {
@@ -18,6 +19,18 @@ function App() {
         return(
           <Route key={index} exact path={`/${hobby}`}>
             <HobbySub key={index} hobby={hobby}/>
+          </Route>
+        )
+      })
+    )
+  })
+
+  const newPostComponents = HobbyArray.map(item => {
+    return(
+      item.hobbies.map((hobby, index) => {
+        return(
+          <Route key={index} exact path={`/new_post/${hobby}`}>
+            <NewPost key={index} hobby={hobby}/>
           </Route>
         )
       })
@@ -38,6 +51,7 @@ function App() {
           <TakeQuiz />
         </Route>
         {routeComponents}
+        {newPostComponents}
       </Switch>
     </Router>
   )
