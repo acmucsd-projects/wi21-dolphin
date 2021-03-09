@@ -5,17 +5,22 @@ const Hobby = require('../models/hobby')
 
 
 router
-.route('/')
-
 /* GET all hobbies. */
-.get(async (res) => {
-  const hobbies = await Hobby.find().exec()
+.get('/all', async (req, res) => {
+  await Hobby.find().exec()
+  .then(function(hobbies) {
+    res.status(200).json({ hobbies });
+  })
+  .catch(function(error) {
+    console.log(error);
+    console.log("Error getting all the hobbies");
+  })
 
-  res.status(200).json({ hobbies })
+  
 })
 
 /* GET a hobby. */
-.get(async (req, res) => {
+.get('/one', async (req, res) => {
   const hobby = await Hobby.findOne( {
     name: req.query.name
   })

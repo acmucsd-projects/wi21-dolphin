@@ -3,7 +3,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/userRoute');
 const categoryRouter = require('./routes/categoryRoute')
 const hobbyRouter = require('./routes/hobbyRoute')
 const postRouter = require('./routes/postRoute')
