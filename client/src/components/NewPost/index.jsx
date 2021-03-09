@@ -1,12 +1,16 @@
 import './style.css';
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 
 function NewPost(props) {
   const nameEl = React.useRef(null);
   const [title, setTitle] = useState("");
+  let history = useHistory();
 
-  const handleSubmit = e => {
+  function handleSubmit(e) {
     // send post to backend to process
+    alert(title + " " + nameEl.current.value);
+    history.push(`/${props.hobby}`);
   }
 
   return (
