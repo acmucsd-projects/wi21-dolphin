@@ -4,7 +4,6 @@ const User = require('../models/user');
 
 router
 .route('/')
-
 .get(async (req, res) => {
     const queryUsername = req.query.user_name;
     const queryPassword = req.query.password;

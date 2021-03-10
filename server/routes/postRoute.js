@@ -1,9 +1,9 @@
 const { json } = require('express');
 const express = require('express');
 const router = express.Router();
-const Hobby = require('../models/hobby')
-const Post = require('../models/post')
-const User = require('../models/user')
+const Hobby = require('../models/hobby');
+const Post = require('../models/post');
+const User = require('../models/user');
 
 router
 .get('/viaHobby', async (req, res) => {

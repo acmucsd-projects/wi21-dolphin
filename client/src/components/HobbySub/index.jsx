@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import Post from "../Post";
+import API from '../../API';
 import './style.css';
 
 function HobbySub(props) {
@@ -8,10 +9,27 @@ function HobbySub(props) {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        // pull post data from database
+        /*console.log("Getting from localhost:5000/test");
+        axios.get("http://localhost:5000/test").then((response) => {
+            console.log(response);
+        })*/
+        API.getPostsHobby(props.hobby).then((response) => {
+            console.log(response);
+            setPosts(response.data.posts);
+        })
+        .catch(err => {
+            console.log(err);
+            if (err.response) {
+                console.log("Client received an error response");
+            } else if (err.request) {
+                console.log("Client never received a response, or request never left");
+            } else {
+                console.log("Something else went wrong")
+            }
+        })
+    }, []);
 
-        setPosts([])
-    }, [])
+    console.log(posts);
 
     return(
         <div className="hobby-sub">
@@ -20,8 +38,10 @@ function HobbySub(props) {
                 <button className="new-post-button">Create New Post</button>
             </Link>
             <div>
-                {posts.map(post => {
-                    <Post post={post}/>
+                {posts.map((post, key) => {
+                    return (
+                        <Post post={post} key={`post-${key}`}/>
+                    )
                 })}
             </div>
         </div>

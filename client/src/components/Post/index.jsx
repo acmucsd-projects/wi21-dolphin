@@ -1,11 +1,12 @@
 import "./style.css";
 
 // This should be an object stored in the database that has:
-// title, description, upvote? downvote?, id?
+// 
 function Post(props) {
     return (
-        <div>
-            Post
+        <div className="post-border">
+            <h2>{props.post.user_name}</h2>
+            <p>{props.post.content}</p>
         </div>
     )
 }

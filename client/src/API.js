@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const serverUrl = "localhost:5000";
+// ADD THIS
+
+const serverUrl = "http://localhost:5000";
 
 const API = {
     getAllHobbies: function() {
@@ -19,10 +21,10 @@ const API = {
         return axios.post(`${serverUrl}/users?user_name=` + username + `&password=` + password);
     },
     getPostsHobby: function(hobby) {
-        return axios.get(`${serverUrl}/posts?hobby=` + hobby);
+        return axios.get(`${serverUrl}/posts/viaHobby?hobby=` + hobby);
     },
     getPostsUser: function(username) {
-        return axios.get(`${serverUrl}/posts?user_name` + username);
+        return axios.get(`${serverUrl}/posts/viaUser?user_name` + username);
     },
     postPost: function(username, content, hobby) {
         return axios.post(`${serverUrl}/posts?user_name` + username + `&content=` + content + `&hobby=` + hobby);

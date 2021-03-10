@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Hobby = require('../models/hobby')
-
-
+const Hobby = require('../models/hobby');
 
 router
 /* GET all hobbies. */
