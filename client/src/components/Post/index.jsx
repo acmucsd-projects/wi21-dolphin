@@ -1,5 +1,7 @@
 import "./style.css";
 import React, {useState} from 'react';
+import { faHeart } from "@fortawesome/free-solid-svg-icons"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // This should be an object stored in the database that has:
 // 
@@ -15,13 +17,15 @@ function Post(props) {
     return (
         <div className="post-container">
             <div className="like-component">
-                {liked === false ? ( 
-                    <button className="like-button" onClick={toggle}>Like</button>
-                ) : ( 
-                    <button className="like-button" onClick={toggle}>Unlike</button>
-                )}
-                
+                <div onClick={toggle}> 
+                    {liked === false ? ( 
+                        <FontAwesomeIcon icon={faHeart} size="2x" color="white"/> 
+                    ) : ( 
+                        <FontAwesomeIcon icon={faHeart} size="2x" color="red"/> 
+                    )} 
+                </div>    
             </div>
+            
             <div className="post-component">
                 <p>Posted by {props.post.user_name}</p>
                 <h2>{props.post.title}</h2>
