@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 // Get arguments passed on command line
-var userArgs = process.argv.slice(2);
+const userArgs = process.argv.slice(2);
 
-var async = require('async')
-var Category = require('./models/category')
-var Hobby = require('./models/hobby')
+const async = require('async')
+const Category = require('./models/category')
+const Hobby = require('./models/hobby')
 
-var mongoose = require('mongoose');
-var mongoDB = userArgs[0];
+const mongoose = require('mongoose');
+const mongoDB = userArgs[0];
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var categories = []
@@ -30,8 +30,6 @@ function hobbyCreate(name, category, cb) {
         name: name,
         description: "This has no description yet"
     });
-    
-    hobby.posts = [];
 
     hobby.save(function (err) {
         if (err) {

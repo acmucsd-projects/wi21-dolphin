@@ -1,11 +1,32 @@
 .navbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex-wrap: wrap; 
     border-bottom: 2px solid #AAAAAA;
+    font-family: Chalkboard;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #111111;
+}
+
+.navbar-left {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: left;
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: space-evenly;
+    align-self: right;
 }
 
 .navbar-component {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.link {
+    text-decoration: none;
 }

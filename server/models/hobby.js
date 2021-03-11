@@ -1,11 +1,10 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var HobbySchema = new Schema (
+const HobbySchema = new Schema (
     {
         name: {type: String, required: true},
         description: {type: String, required: true},
-        posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
     }
 );
 
