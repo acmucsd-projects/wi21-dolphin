@@ -58,8 +58,9 @@ router
     const queryName = req.query.user_name;
     const queryContent = req.query.content;
     const queryHobby = req.query.hobby;
+    const queryTitle = req.query.title;
 
-    if (!queryName || !queryContent || !queryHobby) {
+    if (!queryName || !queryContent || !queryHobby || !queryTitle) {
         res.status(400).json({ error: 'Invalid input' });
     }
 
@@ -77,8 +78,9 @@ router
 
     const post = new Post({
         user_name: queryName,
+        title: queryTitle,
         content: queryContent,
-        hobby: post_to_hobby
+        hobby: post_to_hobby,
     })
      
     const newPost = await Post.create(post);
