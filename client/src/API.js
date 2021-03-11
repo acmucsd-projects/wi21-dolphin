@@ -26,8 +26,8 @@ const API = {
     getPostsUser: function(username) {
         return axios.get(`${serverUrl}/posts/viaUser?user_name` + username);
     },
-    postPost: function(username, content, hobby) {
-        return axios.post(`${serverUrl}/posts?user_name` + username + `&content=` + content + `&hobby=` + hobby);
+    postPost: function(username, content, hobby, title) {
+        return axios.post(`${serverUrl}/posts?user_name=` + username + `&content=` + content + `&hobby=` + hobby + `&title=` + title);
     },
     deletePost: function(hobby) {
         return axios.delete(`${serverUrl}/posts?hobby=` + hobby);

@@ -9,10 +9,7 @@ function HobbySub(props) {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        /*console.log("Getting from localhost:5000/test");
-        axios.get("http://localhost:5000/test").then((response) => {
-            console.log(response);
-        })*/
+        
         API.getPostsHobby(props.hobby).then((response) => {
             console.log(response);
             setPosts(response.data.posts);
