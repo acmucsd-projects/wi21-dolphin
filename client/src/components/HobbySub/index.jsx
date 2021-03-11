@@ -33,16 +33,24 @@ function HobbySub(props) {
 
     return(
         <div className="hobby-sub">
-            <h1>{props.hobby}</h1>
-            <Link to={`/new_post/${props.hobby}`}>
-                <button className="new-post-button">Create New Post</button>
-            </Link>
-            <div>
-                {posts.map((post, key) => {
-                    return (
-                        <Post post={post} key={`post-${key}`}/>
-                    )
-                })}
+            <div className="hobby-sub-header">
+                <div className="left-component">
+                    <h1 className="hobby-sub-title">{props.hobby}</h1>
+                </div>
+                <div className="right-component">
+                    <Link to={`/new_post/${props.hobby}`}>
+                        <button className="new-post-button">Create New Post</button>
+                    </Link>
+                </div>
+            </div>
+            <div className="hobby-sub-posts">
+                <div>
+                    {posts.map((post, key) => {
+                        return (
+                            <Post post={post} key={`post-${key}`}/>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )
