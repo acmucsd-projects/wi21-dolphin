@@ -40,8 +40,8 @@ function HobbySub(props) {
                     </Link>
                 </div>
             </div>
-            <div className="hobby-sub-posts">
-                <div>
+            <div>
+                <div className="hobby-sub-posts">
                     {posts.map((post, key) => {
                         return (
                             <Post post={post} key={`post-${key}`}/>
