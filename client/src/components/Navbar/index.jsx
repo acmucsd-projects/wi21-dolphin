@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
-
+  // if logged in, show profile in navbar. otherwise, show login
   return (
     <nav className="navbar">
       <div className="navbar-left">

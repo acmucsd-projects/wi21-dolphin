@@ -11,6 +11,8 @@ import HobbySub from './components/HobbySub';
 import Profile from './pages/Profile';
 import TakeQuiz from './pages/Take-quiz';
 import NewPost from './components/NewPost';
+import Login from './pages/Login';
+import SignIn from './pages/SignIn';
 
 function App() {
   const routeComponents = HobbyArray.map(item => {
@@ -49,6 +51,12 @@ function App() {
         </Route>
         <Route exact path="/take-quiz">
           <TakeQuiz />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/signin">
+          <SignIn />
         </Route>
         {routeComponents}
         {newPostComponents}

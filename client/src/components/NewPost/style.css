@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     background-color: #ededed;
+    height: 89vh;
   }
   
   .post-component2 {
@@ -11,7 +12,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 80vh;
     width: max-content;
     font-family: Chalkboard;
     font-style: normal;

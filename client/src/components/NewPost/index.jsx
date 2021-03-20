@@ -10,21 +10,26 @@ function NewPost(props) {
 
   function HandleSubmit(e) {
     // send post to backend to process
-    alert(title + " " + nameEl.current.value);
-    API.postPost("Sumadhwa13", nameEl.current.value, props.hobby, title).then((response) => {
-      console.log(response);
-    })
-    .catch(err => {
-      console.log(err);
-      if (err.response) {
-          console.log("Client received an error response");
-      } else if (err.request) {
-          console.log("Client never received a response, or request never left");
-      } else {
-          console.log("Something else went wrong")
-      }
-    })
-    history.push(`/${props.hobby}`);
+    if (title === "") {
+      alert("Title cannot be empty");
+      e.target.reset();
+    }
+    else {
+      API.postPost("Sumadhwa13", nameEl.current.value, props.hobby, title).then((response) => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+        if (err.response) {
+            console.log("Client received an error response");
+        } else if (err.request) {
+            console.log("Client never received a response, or request never left");
+        } else {
+            console.log("Something else went wrong")
+        }
+      })
+      history.push(`/${props.hobby}`);
+    }
   }
 
   return (

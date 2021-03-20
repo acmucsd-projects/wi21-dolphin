@@ -1,0 +1,34 @@
+.login-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Chalkboard;
+    height: 100vh;
+  }
+  
+  .login-component2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ededed;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 15px;
+  }
+  
+  .login-button {
+    font-family: Chalkboard;
+    background-color: #AAAAAA;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    align-self: center;
+  }
