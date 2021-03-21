@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
+
 function SignIn() {
-    const username = useFormInput('');
+  const username = useFormInput('');
   const password1 = useFormInput('');
   const password2 = useFormInput('');
   const [error, setError] = useState(null);
@@ -45,14 +47,14 @@ function SignIn() {
 
 const useFormInput = initialValue => {
     const [value, setValue] = useState(initialValue);
-   
+
     const handleChange = e => {
-      setValue(e.target.value);
+        setValue(e.target.value);
     }
     return {
-      value,
-      onChange: handleChange
+        value,
+        onChange: handleChange
     }
-  }
+}
 
 export default SignIn
