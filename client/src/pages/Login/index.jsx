@@ -1,12 +1,14 @@
 import './style.css';
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Login(props) {
   const username = useFormInput('');
   const password = useFormInput('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  let history = useHistory();
  
   // handle button click of login form
   const handleLogin = () => {
@@ -16,7 +18,7 @@ function Login(props) {
     else {
       alert("Username: " + username.value + " Password: " + password.value);
       // check if username password pair is in the database
-      //props.history.push('/dashboard');
+      history.push('/home');
     }
   }
  
@@ -32,13 +34,13 @@ function Login(props) {
           <p className="password">Password</p>
           <input type="password" {...password} autoComplete="new-password" />
         </div>
-          {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}
-          <input className="login-button" type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} />
-        </div>
+        {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}
+        <input className="login-button" type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} />
         <div>
-            <p className="signin">Don't have an account? Sign in <Link to="/signin">here</Link></p>
+        <p className="signin">Don't have an account? Sign in <Link to="/signin">here</Link></p>
         </div>
       </div>
+    </div>
   );
 }
  

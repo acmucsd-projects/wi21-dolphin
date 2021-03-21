@@ -13,6 +13,7 @@ import TakeQuiz from './pages/Take-quiz';
 import NewPost from './components/NewPost';
 import Login from './pages/Login';
 import SignIn from './pages/SignIn';
+import FrontPage from './pages/FrontPage';
 
 function App() {
   const routeComponents = HobbyArray.map(item => {
@@ -41,25 +42,30 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/profile">
-          <Profile />
-        </Route>
-        <Route exact path="/take-quiz">
-          <TakeQuiz />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/signin">
-          <SignIn />
-        </Route>
-        {routeComponents}
-        {newPostComponents}
+          <Route exact path="/">
+            <FrontPage />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
+          </Route>
+        <div>
+          <Navbar />
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+          <Route exact path="/take-quiz">
+            <TakeQuiz />
+          </Route>
+          {routeComponents}
+          {newPostComponents}
+        </div>
       </Switch>
     </Router>
   )

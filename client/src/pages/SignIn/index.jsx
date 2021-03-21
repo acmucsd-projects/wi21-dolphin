@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './style.css';
 
 function SignIn() {
   const username = useFormInput('');
@@ -12,7 +13,7 @@ function SignIn() {
     if (username.value === "" || password1.value === "" || password2.value === "") {
       alert("Username and password sections cannot be blank");
     }
-    else if (password1.value != password2.value) {
+    else if (password1.value !== password2.value) {
       alert("Passwords do not match");
     }
     else {

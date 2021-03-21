@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-left">
         <p className="navbar-component">
-            <Link className="link" to="/" style={{ textDecoration: 'none', color: "#111111" }}>Hobbies Inc.</Link>
+            <Link className="link" to="/home" style={{ textDecoration: 'none', color: "#111111" }}>Hobbies Inc.</Link>
         </p>
       </div>
       <div className="navbar-right">
