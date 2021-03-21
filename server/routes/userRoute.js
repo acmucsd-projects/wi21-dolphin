@@ -12,32 +12,38 @@ router
       password: queryPassword
     }, function (err) {
       if (err) {
-          res.status(400).json({ error: 'Invalid user input'})
+          res.status(400)
+          return res.json({ error: 'Invalid user input'})
       }
     })
 
     if (user === null) {
-      res.status(400).json({ error: 'Invalid input or no such user exists' })
+      res.status(400)
+      return res.json({ error: 'Invalid input or no such user exists' })
     }
 
-    res.status(200).json({ user });
+    return res.json({ user });
 })
 .post(async (req, res) => {
     const queryUsername = req.query.user_name;
     const queryPassword = req.query.password;
     if (!queryUsername || !queryPassword) {
-      res.status(400).json({ error: 'Invalid input' });
+      res.status(400)
+      return res.json({ error: 'Invalid input' });
     }
-    const existingUser = await User.findOne( {
-        user_name: queryUsername
-    }, function (err) {
-      if (err) {
-          res.status(400).json({ error: 'Invalid user input' })
-      }
-    })
 
+    let existingUser = null;
+    try {
+      existingUser = await User.findOne( {
+          user_name: queryUsername
+      });
+    } catch {
+      res.status(400)
+      return res.json({ error: 'Promise rejected' })
+    }
     if (existingUser !== null) {
-      res.status(400).json({ error: 'Username already exists' })
+      res.status(400)
+      return res.json({ error: 'Username already exists' })
     }
     const user = new User({
       user_name: queryUsername,
@@ -46,9 +52,10 @@ router
 
     const newUser = await User.create(user);
 
-    res.status(200).json({ user: newUser });
+    return res.json({ user: newUser });
+  }
 
-})
+)
 
 
 

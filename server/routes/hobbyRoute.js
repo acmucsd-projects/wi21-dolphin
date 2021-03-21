@@ -7,11 +7,12 @@ router
 .get('/all', async (req, res) => {
   await Hobby.find().exec()
   .then(function(hobbies) {
-    res.status(200).json({ hobbies });
+    return res.json({ hobbies });
   })
   .catch(function(error) {
     console.log(error);
-    console.log("Error getting all the hobbies");
+    res.status(400);
+    return res.send("Error getting all the categories");
   })
 
   
@@ -24,9 +25,10 @@ router
   })
 
   if (hobby === null) {
-    res.status(400).json({ error: "Invalid input" });
+    res.status(400)
+    return res.json({ error: "Invalid input" });
   } else {
-    res.status(200).json({ hobby });
+    return res.json({ hobby });
   }
 })
 
