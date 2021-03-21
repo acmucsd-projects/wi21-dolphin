@@ -11,7 +11,10 @@ const API = {
     getOneHobby: function(hobby) {
         return axios.get(`${serverUrl}/hobbies/one?name=` + hobby);
     },
-    getCategory: function(category) {
+    getAllCategories: function() {
+        return axios.get(`${serverUrl}/categories/all`);
+    },
+    getOneCategory: function(category) {
         return axios.get(`${serverUrl}/categories?name=` + category);
     },
     getUser: function(username, password) {
@@ -20,8 +23,17 @@ const API = {
     postUser: function(username, password) {
         return axios.post(`${serverUrl}/users?user_name=` + username + `&password=` + password);
     },
+    getPost: function(posted_by, content, hobby, title) {
+        return axios.get(`${serverUrl}/posts/one?posted_by=` + posted_by + `&content=` + content + `&hobby=` + hobby + `&title=` + title);
+    },
     getPostsHobby: function(hobby) {
         return axios.get(`${serverUrl}/posts/viaHobby?hobby=` + hobby);
+    },
+    addLike: function(posted_by, content, hobby, title, liked_by) {
+        return axios.put(`${serverUrl}/posts/like?posted_by=` + posted_by + `&content=` + content + `&hobby=` + hobby + `&title=` + title + `&liked_by=` + liked_by);
+    },
+    removeLike: function(posted_by, content, hobby, title, disliked_by) {
+        return axios.put(`${serverUrl}/posts/dislike?posted_by=` + posted_by + `&content=` + content + `&hobby=` + hobby + `&title=` + title + `&disliked_by=` + disliked_by);
     },
     getPostsUser: function(username) {
         return axios.get(`${serverUrl}/posts/viaUser?user_name` + username);
