@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import { useHistory } from "react-router-dom";
 
 function SignIn() {
   const username = useFormInput('');
@@ -7,6 +8,7 @@ function SignIn() {
   const password2 = useFormInput('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  let history = useHistory();
  
   // handle button click of login form
   const handleLogin = () => {
@@ -19,7 +21,7 @@ function SignIn() {
     else {
       alert("Username: " + username.value + " Password: " + password1.value);
       // add username and password pair to the database
-      // props.history.push('/home');
+      history.push('/home');
     }
   }
  
