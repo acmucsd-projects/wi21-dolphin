@@ -8,14 +8,17 @@ const API = {
     getAllHobbies: function() {
         return axios.get(`${serverUrl}/hobbies/all`);
     },
-    getOneHobby: function(hobby) {
-        return axios.get(`${serverUrl}/hobbies/one?name=` + hobby);
+    getHobbyByName: function(name) {
+        return axios.get(`${serverUrl}/hobbies/byName?name=` + name);
+    },
+    getHobbyById: function(id) {
+        return axios.get(`${serverUrl}/hobbies/byId?id=` + id);
     },
     getAllCategories: function() {
         return axios.get(`${serverUrl}/categories/all`);
     },
-    getOneCategory: function(category) {
-        return axios.get(`${serverUrl}/categories?name=` + category);
+    getOneCategory: function(name) {
+        return axios.get(`${serverUrl}/categories?name=` + name);
     },
     getUser: function(username, password) {
         return axios.get(`${serverUrl}/users?user_name=` + username + `&password=` + password);

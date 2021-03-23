@@ -44,7 +44,7 @@ function HobbySub(props) {
                 <div className="hobby-sub-posts">
                     {posts.map((post, key) => {
                         return (
-                            <Post post={post} key={`post-${key}`}/>
+                            <Post post={post} key={`post-${key}`} hobby={props.hobby}/>
                         )
                     })}
                 </div>
