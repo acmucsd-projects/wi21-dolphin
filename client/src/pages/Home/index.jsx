@@ -8,8 +8,11 @@ function Home() {
     <div className="home-component">
       {HobbyArray.map((item, index) => {
           return (
-            <div>
+            <div className="category-component">
+              <div className="category-title">
                 <h1 key={index}>{item.name}</h1>
+              </div>
+              <div className="hobby-list">
                 {item.hobbies.map(hobby => { 
                   return (
                     <li>
@@ -17,6 +20,7 @@ function Home() {
                     </li>
                   )
                 })}
+              </div>
             </div>
           )
       })}

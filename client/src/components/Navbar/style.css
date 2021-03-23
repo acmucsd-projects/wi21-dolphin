@@ -2,12 +2,12 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap; 
-    border-bottom: 2px solid #AAAAAA;
+    border-bottom: 2px solid #a19e9f;
     font-family: Chalkboard;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    color: #111111;
+    background-color: #a19e9f;
 }
 
 .navbar-left {
@@ -29,4 +29,5 @@
 
 .link {
     text-decoration: none;
+    color: white;
 }
