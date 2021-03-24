@@ -14,8 +14,38 @@ import NewPost from './components/NewPost';
 import Login from './pages/Login';
 import SignIn from './pages/SignIn';
 import FrontPage from './pages/FrontPage';
+import PublicRoute from './utils/PublicRoute';
+
+import { getToken, removeUserSession, setUserSession } from './utils/Common'
+import { useEffect } from 'react';
+import API from './API';
 
 function App() {
+
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      return;
+    }
+
+  API.verifyToken(token)
+  .then((response) => {
+    setUserSession(response.data.token, response.data.user);
+    setAuthLoading(false);
+  })
+  .catch((error) => {
+    removeUserSession();
+    setAuthLoading(false);
+  });
+
+}, []);
+
+if (authLoading && getToken()) {
+  return <div className="content">Checking Authentication...</div>
+}
+
   const routeComponents = HobbyArray.map(item => {
     return(
       item.hobbies.map((hobby, index) => {
@@ -27,6 +57,8 @@ function App() {
       })
     )
   })
+
+
 
   const newPostComponents = HobbyArray.map(item => {
     return(
@@ -46,9 +78,7 @@ function App() {
           <Route exact path="/">
             <FrontPage />
           </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
+          <PublicRoute exact path="/login" component={Login} />
           <Route exact path="/signin">
             <SignIn />
           </Route>

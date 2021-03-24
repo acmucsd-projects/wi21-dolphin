@@ -46,6 +46,12 @@ const API = {
     },
     deletePost: function(hobby) {
         return axios.delete(`${serverUrl}/posts?hobby=` + hobby);
+    },
+    signIn: function(user, pwd) {
+        return axios.post(`${serverUrl}/users/signin?user=` + user + `&pwd=` + pwd);
+    },
+    verifyToken: function(token) {
+        return axios.get(`${serverUrl}/users/verifyToken?token=` + token);
     }
 
 }

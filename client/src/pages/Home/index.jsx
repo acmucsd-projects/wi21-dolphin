@@ -1,4 +1,3 @@
-import HobbyArray from './hobbies.json';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -7,13 +6,11 @@ import API from '../../API';
 function Home() {
 
   const [categories, setCategories] = useState([]);
-  //let [Hobby, setHobby] = useState(null);
 
   useEffect(() => {
 
     API.getAllCategories().then((response) => {
       setCategories(response.data.categories);
-      console.log(categories);
     })
     .catch(err => {
       console.log(err);
@@ -31,7 +28,6 @@ function Home() {
   return (
     <div className="home-component">
       {categories.map((item, index) => {
-          console.log(item.hobbies)
           return (
             <div>
                 <h1 key={index}>{item.name}</h1>

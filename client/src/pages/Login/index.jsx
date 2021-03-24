@@ -2,6 +2,8 @@ import './style.css';
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import API from '../../API';
+import { setUserSession } from '../utils/Common';
 
 function Login(props) {
   const username = useFormInput('');
@@ -12,14 +14,30 @@ function Login(props) {
  
   // handle button click of login form
   const handleLogin = () => {
-    if (username.value === "" || password.value === "") {
+    setError(null);
+    setLoading(true);
+    API.signIn(username.value, password.value)
+    .then((response) => {
+      setLoading(false);
+      setUserSession(response.data.token, response.data.user);
+      history.push('/home');
+    })
+    .catch(() => {
+      setLoading(false);
+      if (error.response.status === 401) {
+        setError(error.response.data.message);
+      } else {
+        setError("Something went wrong. Please try again later.");
+      }
+    })
+    /*if (username.value === "" || password.value === "") {
       alert("Username and password sections cannot be blank");
     }
     else {
       alert("Username: " + username.value + " Password: " + password.value);
       // check if username password pair is in the database
       history.push('/home');
-    }
+    }*/
   }
  
   return (
