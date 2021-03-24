@@ -29,9 +29,12 @@ function Home() {
     <div className="home-component">
       {categories.map((item, index) => {
           return (
-            <div>
+            <div className="category-component">
+              <div className="category-title">
                 <h1 key={index}>{item.name}</h1>
-                {item.hobbies.map(hobby => {
+              </div>
+              <div className="hobby-list">
+                {item.hobbies.map(hobby => { 
                   return (
                     <li>
                       <Link to={`/${hobby.name}`} style={{ textDecoration: 'none', color: "#111111" }}>{hobby.name}</Link>
@@ -39,6 +42,7 @@ function Home() {
                   )
 
                 })}
+              </div>
             </div>
           )
       })}
