@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {Link} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import API from '../../API';
-import { setUserSession } from '../utils/Common';
+import { setUserSession } from '../../utils/Common';
 
 function Login(props) {
   const username = useFormInput('');
