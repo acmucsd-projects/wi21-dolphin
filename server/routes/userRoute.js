@@ -57,8 +57,8 @@ router
   }
 )
 .post('/signin', async function(req, res) {
-  const user = req.query.user_name;
-  const pwd = req.query.password;
+  const user = req.query.user;
+  const pwd = req.query.pwd;
   // return 400 status if username/password is not exist
   if (!user || !pwd) {
     return res.status(400).json({
@@ -77,7 +77,7 @@ router
     }
   })
 
-  if (user === null) {
+  if (user === null || userData === null || userData.user_name === null || userData.password === null) {
     res.status(400)
     return res.json({ error: 'Invalid input or no such user exists' })
   }

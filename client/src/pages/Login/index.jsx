@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {Link} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import API from '../../API';
-import { setUserSession } from '../utils/Common';
+import { setUserSession } from '../../utils/Common';
 
 function Login(props) {
   const username = useFormInput('');
@@ -22,10 +22,10 @@ function Login(props) {
       setUserSession(response.data.token, response.data.user);
       history.push('/home');
     })
-    .catch(() => {
+    .catch((err) => {
       setLoading(false);
-      if (error.response.status === 401) {
-        setError(error.response.data.message);
+      if (err.response.status === 401 || err.response.status === 400) {
+        setError(err.response.data.message);
       } else {
         setError("Something went wrong. Please try again later.");
       }

@@ -17,7 +17,7 @@ import FrontPage from './pages/FrontPage';
 import PublicRoute from './utils/PublicRoute';
 
 import { getToken, removeUserSession, setUserSession } from './utils/Common'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import API from './API';
 
 function App() {
