@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import { useHistory } from "react-router-dom";
+import API from "../../API";
 
 function SignIn() {
   const username = useFormInput('');
@@ -21,6 +22,15 @@ function SignIn() {
     else {
       alert("Username: " + username.value + " Password: " + password1.value);
       // add username and password pair to the database
+
+      API.postUser(username.value, password1.value)
+      .then((response) => {
+        response.send("Success!");
+      })
+      .catch((error) => {
+        console.log("Something wrong happened");
+      });
+
       history.push('/home');
     }
   }
