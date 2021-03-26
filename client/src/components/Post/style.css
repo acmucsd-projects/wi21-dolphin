@@ -6,17 +6,22 @@
     font-family: Chalkboard;
     width: 75%;
     margin: 10px;
-    border: 3px solid #AAAAAA;
+    border: 3px solid #222c3c;
     border-radius: 5px;
 }
 
 .like-component {
-    background-color: #AAAAAA;
+    background-color: #222c3c;
     padding: 5px;
+    text-align: center;
 }
 
 .post-component {
     padding-left: 10px;
     height: min-content;
     width: 100%;
+}
+
+.num-likes {
+    color: white;
 }

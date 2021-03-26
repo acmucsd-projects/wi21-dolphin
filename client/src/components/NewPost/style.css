@@ -1,7 +1,7 @@
 .post-component1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: #ededed;
     height: 89vh;
@@ -13,6 +13,7 @@
     justify-content: flex-start;
     align-items: center;
     width: max-content;
+    max-height: 85vh;
     font-family: Chalkboard;
     font-style: normal;
     font-weight: normal;
