@@ -1,5 +1,5 @@
 import "./style.css";
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { faHeart } from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import API from '../../API';
@@ -7,8 +7,50 @@ import API from '../../API';
 // This should be an object stored in the database that has:
 // 
 function Post(props) {
+
+    const username = props.username;
+
+    console.log("Username: " + username);
+
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        API.getUser(username)
+        .then((response) => {
+            console.log(response.data.user);
+            setUserId(response.data.user._id.toString());
+        })
+        .catch(err => {
+            if (err.response) {
+                console.log("Client received an error response");
+            } else if (err.request) {
+                console.log("Client never received a response, or request never left");
+            } else {
+                console.log("Something else went wrong");
+            }
+        })
+
+        console.log(userId);
+
+
+        let alreadyLiked = false;
+        
+        for (let i = 0; i < props.post.likes.length; i++) {
+            const compare = props.post.likes[i].toString();
+            if (compare === userId) {
+                alreadyLiked = true;
+                break;
+            }
+        }
+
+        console.log(alreadyLiked);
+
+        setLiked(alreadyLiked);
+
+    }, []);
+    
+
     const [liked, setLiked] = useState(false);
-    const user = "pagman";
     const [numLikes, setNumLikes] = useState(props.post.likes.length);
 
     function toggle() { 
@@ -18,10 +60,10 @@ function Post(props) {
         let currLiked = numLikes;
         
         if (localLiked) {
-            API.addLike(props.post.user_name, props.post.content, props.hobby, props.post.title, user);
+            API.addLike(props.post.user_name, props.post.content, props.hobby, props.post.title, username);
             setNumLikes(currLiked+1);
         } else {
-            API.removeLike(props.post.user_name, props.post.content, props.hobby, props.post.title, user);
+            API.removeLike(props.post.user_name, props.post.content, props.hobby, props.post.title, username);
             setNumLikes(currLiked-1);
         }
     }

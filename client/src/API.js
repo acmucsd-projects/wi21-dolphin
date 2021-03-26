@@ -20,8 +20,8 @@ const API = {
     getOneCategory: function(name) {
         return axios.get(`${serverUrl}/categories?name=` + name);
     },
-    getUser: function(username, password) {
-        return axios.get(`${serverUrl}/users?user_name=` + username + `&password=` + password);
+    getUser: function(username) {
+        return axios.get(`${serverUrl}/users?user_name=` + username);
     },
     postUser: function(username, password) {
         return axios.post(`${serverUrl}/users?user_name=` + username + `&password=` + password);

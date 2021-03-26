@@ -181,19 +181,19 @@ router
             res.status(400)
             return res.json({ error: 'Invalid post inputs' })
         }
-    })
+    }).populate('likes')
 
     if (post === null) {
         res.status(400)
         return res.json({ error: 'Invalid post inputs' })
     }
 
-    if (post.likes.includes(liked)) {
-        res.status(400)
-        return res.json({ error: 'Already liked by this user!'} )
-    }
-
-    post.likes.push(liked);
+    Post.updateOne({
+        user_name: post.user_name, 
+        title: post.title,
+        content: post.content,
+        hobby: post.hobby
+        }, {$set: {likes: liked}});
 
     await post.save();
 

@@ -7,10 +7,8 @@ const jwt = require('jsonwebtoken')
 router
 .get('/', async (req, res) => {
     const queryUsername = req.query.user_name;
-    const queryPassword = req.query.password;
     const user = await User.findOne( {
       user_name: queryUsername,
-      password: queryPassword
     }, function (err) {
       if (err) {
           res.status(400)

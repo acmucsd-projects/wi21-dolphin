@@ -23,6 +23,7 @@ import API from './API';
 function App() {
 
   const [authLoading, setAuthLoading] = useState(true);
+  const [username, setUsername] = useState(null);
 
   useEffect(() => {
     const token = getToken();
@@ -33,6 +34,7 @@ function App() {
   API.verifyToken(token)
   .then((response) => {
     setUserSession(response.data.token, response.data.user);
+    setUsername(response.data.user.username);
     setAuthLoading(false);
   })
   .catch((error) => {
@@ -51,7 +53,7 @@ if (authLoading && getToken()) {
       item.hobbies.map((hobby, index) => {
         return(
           <Route key={index} exact path={`/${hobby}`}>
-            <HobbySub key={index} hobby={hobby}/>
+            <HobbySub key={index} hobby={hobby} username={username}/>
           </Route>
         )
       })
@@ -65,7 +67,7 @@ if (authLoading && getToken()) {
       item.hobbies.map((hobby, index) => {
         return(
           <Route key={index} exact path={`/new_post/${hobby}`}>
-            <NewPost key={index} hobby={hobby}/>
+            <NewPost key={index} hobby={hobby} username={username}/>
           </Route>
         )
       })
@@ -88,10 +90,10 @@ if (authLoading && getToken()) {
             <Home />
           </Route>
           <Route exact path="/profile">
-            <Profile />
+            <Profile username={username}/>
           </Route>
           <Route exact path="/take-quiz">
-            <TakeQuiz />
+            <TakeQuiz username={username}/>
           </Route>
           {routeComponents}
           {newPostComponents}
