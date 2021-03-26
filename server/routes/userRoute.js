@@ -140,6 +140,34 @@ router
   });
 
 })
+.put('/editBio', async function(req, res) {
+  const username = req.query.username;
+  const biography = req.query.biography;
+  if (!username || !biography) {
+    res.status(400)
+    res.json({error: "No input given"})
+  }
+
+  const user = await User.findOne( {
+    user_name: username,
+  }, function (err) {
+    if (err) {
+        res.status(400)
+        return res.json({ error: 'Invalid user input'})
+    }
+  })
+
+  if (user === null) {
+    res.status(400)
+    return res.json({ error: 'Invalid input or no such user exists' })
+  }
+
+  user.biography = biography;
+
+  await user.save();
+
+  return res.json({ user });
+})
 
 
 

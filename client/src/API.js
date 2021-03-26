@@ -52,6 +52,9 @@ const API = {
     },
     verifyToken: function(token) {
         return axios.get(`${serverUrl}/users/verifyToken?token=` + token);
+    },
+    editBio: function(username, biography) {
+        return axios.put(`${serverUrl}/users/editBio?username=` + username + `&biography=` + biography);
     }
 
 }
