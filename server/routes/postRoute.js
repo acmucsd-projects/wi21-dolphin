@@ -125,6 +125,20 @@ router
         return res.json({ error: 'Invalid hobby input' })
     }
 
+    const user = await User.findOne( {
+        user_name: queryName
+    }, function (err) {
+        if (err) {
+            res.status(400)
+            return res.json({ error: 'Invalid hobby input' })
+        }
+    })
+
+    if (user === null) {
+        res.status(400)
+        return res.json({ error: 'Invalid username input' })
+    }
+
     const post = new Post({
         user_name: queryName,
         title: queryTitle,
@@ -188,12 +202,11 @@ router
         return res.json({ error: 'Invalid post inputs' })
     }
 
-    Post.updateOne({
-        user_name: post.user_name, 
-        title: post.title,
-        content: post.content,
-        hobby: post.hobby
-        }, {$set: {likes: liked}});
+    let added = [...new Set(post.likes)];
+    added.push(liked);
+
+    const filtered = [...new Set(added)];
+    post.likes = filtered;
 
     await post.save();
 

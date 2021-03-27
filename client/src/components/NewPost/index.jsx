@@ -6,6 +6,7 @@ import API from '../../API';
 function NewPost(props) {
   const nameEl = React.useRef(null);
   const [title, setTitle] = useState("");
+  const username = props.username;
   let history = useHistory();
 
   function HandleSubmit(e) {
@@ -15,7 +16,7 @@ function NewPost(props) {
       e.target.reset();
     }
     else {
-      API.postPost("Sumadhwa13", nameEl.current.value, props.hobby, title).then((response) => {
+      API.postPost(username, nameEl.current.value, props.hobby, title).then((response) => {
         console.log(response);
       })
       .catch(err => {

@@ -13,12 +13,16 @@ function Post(props) {
     console.log("Username: " + username);
 
     const [userId, setUserId] = useState(null);
+    const [liked, setLiked] = useState(false);
+    const [numLikes, setNumLikes] = useState(props.post.likes.length);
 
     useEffect(() => {
         API.getUser(username)
         .then((response) => {
             console.log(response.data.user);
-            setUserId(response.data.user._id.toString());
+            const id = response.data.user._id;
+            console.log(id);
+            setUserId(id);
         })
         .catch(err => {
             if (err.response) {
@@ -37,21 +41,19 @@ function Post(props) {
         
         for (let i = 0; i < props.post.likes.length; i++) {
             const compare = props.post.likes[i].toString();
+            console.log(compare);
             if (compare === userId) {
                 alreadyLiked = true;
                 break;
             }
         }
-
+        
         console.log(alreadyLiked);
 
         setLiked(alreadyLiked);
 
     }, []);
     
-
-    const [liked, setLiked] = useState(false);
-    const [numLikes, setNumLikes] = useState(props.post.likes.length);
 
     function toggle() { 
         let localLiked = liked;
