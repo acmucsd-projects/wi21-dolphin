@@ -1,58 +1,33 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import QuizOptions from "../../components/QuizOptions";
+import QuizQuestions from "./questions.json";
 
 function TakeQuiz(){
 
+    var handleSubmit = () => {
+        alert("submitted");
+    }
     
     return(
         <>
-        <showOption>
+        <p>
+            Instructions
+        </p>
+        <form onSubmit = {handleSubmit}>
+        {
+            QuizQuestions.map((item, index) => {
+                return(
+                    <QuizOptions questions={item.name} text = {item.question}/>
+                )
+                
+                
+            })
+            
+        }
 
-        </showOption>
-        
-        <br>
-        </br>
-        <Button>Strongly Disagree</Button>{' '}
-        <Button variant="Disagree">Disagree</Button>{' '}
-        <Button variant="No Opinion">No Opinion</Button>{' '}
-        <Button variant="Agree">Agree</Button>{' '}
-        <Button variant="Strongly Agree">Strongly Agree</Button>{' '}
-        <div>
-        </div>
-        <br>
-        </br>
-        <div>
-            Question 2
-        </div>
-        <br>
-        </br>
-        <Button>Strongly Disagree</Button>{' '}
-        <Button variant="Disagree">Disagree</Button>{' '}
-        <Button variant="No Opinion">No Opinion</Button>{' '}
-        <Button variant="Agree">Agree</Button>{' '}
-        <Button variant="Strongly Agree">Strongly Agree</Button>{' '}
-        <div>
-        </div>
-        <br>
-        </br>
-        <div>
-            Question 3
-        </div>
-        <br>
-        </br>
-        <div>
-            <Button color="danger">Strongly Disagree</Button>{' '}
-            <Button>Disagree</Button>{' '}
-            <Button>No Opinion</Button>{' '}
-            <Button>Agree</Button>{' '}
-            <Button>Strongly Agree</Button>{' '}
-        </div>
-        
-        <div>
-        </div>
-        <br>
-        </br>
-</>
+        <input type = "submit" value = "Submit" name = "submitbutton"/>
+        </form>
+        </>
     )
 
 }
