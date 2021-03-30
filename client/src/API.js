@@ -39,7 +39,7 @@ const API = {
         return axios.put(`${serverUrl}/posts/dislike?posted_by=` + posted_by + `&content=` + content + `&hobby=` + hobby + `&title=` + title + `&disliked_by=` + disliked_by);
     },
     getPostsUser: function(username) {
-        return axios.get(`${serverUrl}/posts/viaUser?user_name` + username);
+        return axios.get(`${serverUrl}/posts/viaUser?user_name=` + username);
     },
     postPost: function(username, content, hobby, title) {
         return axios.post(`${serverUrl}/posts?user_name=` + username + `&content=` + content + `&hobby=` + hobby + `&title=` + title);

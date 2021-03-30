@@ -90,7 +90,7 @@ router
 
     const posts = await Post.find({ 
         user_name: post_to_user.user_name
-    }).exec()
+    }).populate('hobby').exec()
 
     if (posts === null) {
         res.status(400)

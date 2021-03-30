@@ -87,7 +87,7 @@ function Post(props) {
             </div>
             
             <div className="post-component">
-                <p>Posted by {props.post.user_name}</p>
+                <p>Posted by {props.post.user_name} in {props.hobby}</p>
                 <h2>{props.post.title}</h2>
                 <p>{props.post.content}</p>
             </div>

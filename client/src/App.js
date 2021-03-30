@@ -31,18 +31,18 @@ function App() {
       return;
     }
 
-  API.verifyToken(token)
-  .then((response) => {
-    setUserSession(response.data.token, response.data.user);
-    setUsername(response.data.user.username);
-    setAuthLoading(false);
-  })
-  .catch((error) => {
-    removeUserSession();
-    setAuthLoading(false);
-  });
+    API.verifyToken(token)
+    .then((response) => {
+      setUserSession(response.data.token, response.data.user);
+      setUsername(response.data.user.username);
+      setAuthLoading(false);
+    })
+    .catch((error) => {
+      removeUserSession();
+      setAuthLoading(false);
+    });
 
-}, []);
+  }, []);
 
 if (authLoading && getToken()) {
   return <div className="content">Checking Authentication...</div>
