@@ -15,7 +15,8 @@ function Post(props) {
     const [userId, setUserId] = useState(null);
     const [liked, setLiked] = useState(false);
     const [numLikes, setNumLikes] = useState(props.post.likes.length);
-
+    
+    
     useEffect(() => {
         API.getUser(username)
         .then((response) => {
@@ -34,9 +35,11 @@ function Post(props) {
             }
         })
 
-        console.log(userId);
+        console.log(userId + "");
+        
+    }, []);
 
-
+    useEffect(() => {
         let alreadyLiked = false;
         
         for (let i = 0; i < props.post.likes.length; i++) {
@@ -52,7 +55,7 @@ function Post(props) {
 
         setLiked(alreadyLiked);
 
-    }, []);
+    }, [userId]);
     
 
     function toggle() { 
