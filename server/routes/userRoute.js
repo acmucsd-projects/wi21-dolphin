@@ -2,10 +2,15 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const utils = require('../utils');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const cors = require('cors');
+
+const corsOptions = {
+  origin: "https://quizzical-brattain-02ca66.netlify.app"
+}
 
 router
-.get('/', async (req, res) => {
+.get('/', cors(corsOptions), async (req, res) => {
     const queryUsername = req.query.user_name;
     const user = await User.findOne( {
       user_name: queryUsername,
@@ -23,7 +28,7 @@ router
 
     return res.json({ user });
 })
-.post('/', async (req, res) => {
+.post('/', cors(corsOptions), async (req, res) => {
     const queryUsername = req.query.user_name;
     const queryPassword = req.query.password;
     if (!queryUsername || !queryPassword) {
@@ -54,7 +59,7 @@ router
     return res.json({ user: newUser });
   }
 )
-.post('/signin', async function(req, res) {
+.post('/signin', cors(corsOptions), async function(req, res) {
   const user = req.query.user;
   const pwd = req.query.pwd;
   // return 400 status if username/password is not exist
@@ -96,7 +101,7 @@ router
   return res.json({ user: userObj, token });
 
 })
-.get('/verifyToken', function(req, res) {
+.get('/verifyToken', cors(corsOptions), function(req, res) {
   const token = req.query.token;
 
   if (!token) {
@@ -140,7 +145,7 @@ router
   });
 
 })
-.put('/editBio', async function(req, res) {
+.put('/editBio', cors(corsOptions), async function(req, res) {
   const username = req.query.username;
   const biography = req.query.biography;
   if (!username || !biography) {

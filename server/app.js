@@ -6,8 +6,12 @@ const usersRouter = require('./routes/userRoute');
 const categoryRouter = require('./routes/categoryRoute');
 const hobbyRouter = require('./routes/hobbyRoute');
 const postRouter = require('./routes/postRoute');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
+
+const corsOptions = {
+  origin: "https://quizzical-brattain-02ca66.netlify.app"
+}
 
 app.use(logger('dev'));
 app.use(cors());
@@ -20,11 +24,11 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', (req, res) => {
+app.get('/', cors(corsOptions), (req, res) => {
   res.status(200).json({ success: "success?" })
 })
 
-app.get('/test', (req, res) => {
+app.get('/test', cors(corsOptions), (req, res) => {
   const test = { test: "test" }
   res.status(200).json( { test } )
 })

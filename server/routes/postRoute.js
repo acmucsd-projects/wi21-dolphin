@@ -1,12 +1,17 @@
 const { json } = require('express');
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 const Hobby = require('../models/hobby');
 const Post = require('../models/post');
 const User = require('../models/user');
 
+const corsOptions = {
+    origin: "https://quizzical-brattain-02ca66.netlify.app"
+}
+
 router
-.get('/one', async (req, res) => {
+.get('/one', cors(corsOptions), async (req, res) => {
     const queryPostedBy = req.query.posted_by;
     const queryTitle = req.query.title;
     const queryContent = req.query.content;
@@ -46,7 +51,7 @@ router
     }
 
 })
-.get('/viaHobby', async (req, res) => {
+.get('/viaHobby', cors(corsOptions), async (req, res) => {
     const queryHobby = req.query.hobby;
     const post_to_hobby = await Hobby.findOne( {
         name: queryHobby
@@ -73,7 +78,7 @@ router
     }
 
 })
-.get('/viaUser', async (req, res) => {
+.get('/viaUser', cors(corsOptions), async (req, res) => {
     const queryUsername = req.query.user_name;
     const post_to_user = await User.findOne( {
         user_name: queryUsername
@@ -100,7 +105,7 @@ router
     }
 
 })
-.post('/', async (req, res) => {
+.post('/', cors(corsOptions), async (req, res) => {
     const queryName = req.query.user_name;
     const queryContent = req.query.content;
     const queryHobby = req.query.hobby;
@@ -151,7 +156,7 @@ router
 
     return res.json({ post: newPost });
 })
-.put('/like', async (req, res) => {
+.put('/like', cors(corsOptions), async (req, res) => {
     const queryPostedBy = req.query.posted_by;
     const queryTitle = req.query.title;
     const queryContent = req.query.content;
@@ -213,7 +218,7 @@ router
     return res.json({ post });
 
 })
-.put('/dislike', async (req, res) => {
+.put('/dislike', cors(corsOptions), async (req, res) => {
     const queryPostedBy = req.query.posted_by;
     const queryTitle = req.query.title;
     const queryContent = req.query.content;
@@ -267,7 +272,7 @@ router
     return res.json({ post });
 
 })
-.delete('/', async (req, res) => {
+.delete('/', cors(corsOptions), async (req, res) => {
 
     const post_to_hobby = await Hobby.findOne( {
         name: req.query.hobby
