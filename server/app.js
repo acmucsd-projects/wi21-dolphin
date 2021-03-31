@@ -20,6 +20,10 @@ app.use((req, res, next) => {
 });
 
 
+app.get('/', (req, res) => {
+  res.status(200).json({ success: "success!" })
+})
+
 app.get('/test', (req, res) => {
   const test = { test: "test" }
   res.status(200).json( { test } )
