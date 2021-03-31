@@ -9,7 +9,7 @@ const postRouter = require('./routes/postRoute');
 const app = express();
 const cors = require('cors');
 
-app.use(cors({origin: "https://quizzical-brattain-02ca66.netlify.app/"}));
+app.use(cors({origin: "https://quizzical-brattain-02ca66.netlify.app"}));
 app.options('*', cors())
 
 app.use(logger('dev'));
