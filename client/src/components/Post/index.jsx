@@ -85,6 +85,7 @@ function Post(props) {
         API.deletePost(username, props.post.content, props.hobby)
         .then((response) => {
             console.log("Successfully deleted post!");
+            props.handleRerender();
         })
         .catch(err => {
             if (err.response) {
@@ -96,7 +97,7 @@ function Post(props) {
             }
         })
 
-        window.location.reload();
+        //window.location.reload();
     }
 
     return (
