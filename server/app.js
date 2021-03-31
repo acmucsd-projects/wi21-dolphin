@@ -7,6 +7,7 @@ const categoryRouter = require('./routes/categoryRoute');
 const hobbyRouter = require('./routes/hobbyRoute');
 const postRouter = require('./routes/postRoute');
 const app = express();
+const cors = require('cors');
 
 app.use(cors());
 
