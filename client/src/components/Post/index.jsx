@@ -111,9 +111,9 @@ function Post(props) {
                     <p className="num-likes">{numLikes}</p>
                 </div>
 
-            <div className="delete-component">
-                <button type="button" onClick={deletePost}>Delete Post</button>
-            </div>
+                <div className="delete-component">
+                    <button type="button" onClick={deletePost} className="delete">Delete</button>
+                </div>
             </div>
             
             <div className="post-component">
