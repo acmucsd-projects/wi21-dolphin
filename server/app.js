@@ -10,7 +10,7 @@ const cors = require('cors');
 const app = express();
 
 const corsOptions = {
-  origin: "https://quizzical-brattain-02ca66.netlify.app"
+  origin: '*'
 }
 
 app.use(logger('dev'));
