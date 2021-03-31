@@ -12,9 +12,6 @@ function Navbar() {
       </div>
       <div className="navbar-right">
         <p className="navbar-component">
-            <Link className="link" to="/take-quiz" >Take Quiz</Link>
-        </p>
-        <p className="navbar-component">
             <Link className="link" to="/profile" >Profile</Link>
         </p>
       </div>

@@ -30,6 +30,7 @@ function NewPost(props) {
         }
       })
       history.push(`/${props.hobby}`);
+      window.location.reload();
     }
   }
 

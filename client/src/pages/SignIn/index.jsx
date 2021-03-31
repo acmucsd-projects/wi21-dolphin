@@ -20,7 +20,7 @@ function SignIn() {
       alert("Passwords do not match");
     }
     else {
-      alert("Username: " + username.value + " Password: " + password1.value);
+      alert("Your account has been created!");
       // add username and password pair to the database
 
       API.postUser(username.value, password1.value)
