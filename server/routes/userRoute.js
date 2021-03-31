@@ -89,6 +89,7 @@ router
     });
   }
  
+  console.log("Made it to line 92");
   // generate token
   const token = utils.generateToken(userData);
   // get basic user details
