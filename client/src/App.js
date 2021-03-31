@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import HobbyArray from './pages/Home/hobbies.json';
+//import HobbyArray from './pages/Home/hobbies.json';
 import HobbySub from './components/HobbySub';
 import Profile from './pages/Profile';
 import TakeQuiz from './pages/Take-quiz';
@@ -24,6 +24,7 @@ function App() {
 
   const [authLoading, setAuthLoading] = useState(true);
   const [username, setUsername] = useState(null);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
 
@@ -49,17 +50,33 @@ function App() {
     });
 
   }, [getToken]);
+  
+  useEffect(() => {
+    API.getAllCategories().then((response) => {
+      setCategories(response.data.categories);
+    })
+    .catch(err => {
+      console.log(err);
+      if (err.response) {
+          console.log("Client received an error response");
+      } else if (err.request) {
+          console.log("Client never received a response, or request never left");
+      } else {
+          console.log("Something else went wrong");
+      }
+    })
+  }, []);
 
 if (authLoading && getToken()) {
   return <div className="content">Checking Authentication...</div>
 }
 
-  const routeComponents = HobbyArray.map(item => {
+  const routeComponents = categories.map((item) => {
     return(
       item.hobbies.map((hobby, index) => {
         return(
-          <Route key={index} exact path={`/${hobby}`}>
-            <HobbySub key={index} hobby={hobby} username={username}/>
+          <Route key={index} exact path={`/${hobby.name}`}>
+            <HobbySub key={index} hobby={hobby.name} username={username} description={hobby.description}/>
           </Route>
         )
       })
@@ -68,7 +85,7 @@ if (authLoading && getToken()) {
 
 
 
-  const newPostComponents = HobbyArray.map(item => {
+  const newPostComponents = categories.map((item) => {
     return(
       item.hobbies.map((hobby, index) => {
         return(

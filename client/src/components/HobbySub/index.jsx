@@ -40,6 +40,9 @@ function HobbySub(props) {
                     </Link>
                 </div>
             </div>
+            <div className="description">
+                <h2 className="hobby-description">{props.description}</h2>
+            </div>
             <div>
                 <div className="hobby-sub-posts">
                     {posts.map((post, key) => {
