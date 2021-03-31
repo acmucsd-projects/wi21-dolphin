@@ -21,7 +21,7 @@ router
     return res.json({ category });
 })
 .get('/all', async (req, res) => {
-  await Category.find()
+  await Category.find({})
   .populate({
     path: 'hobbies',
   })
