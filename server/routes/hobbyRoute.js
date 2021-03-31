@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors');
 const Hobby = require('../models/hobby');
 
-const corsOptions = {
-  origin: "https://quizzical-brattain-02ca66.netlify.app"
-}
 
 router
 /* GET all hobbies. */
-.get('/all', cors(corsOptions), async (req, res) => {
+.get('/all', async (req, res) => {
   await Hobby.find().exec()
   .then(function(hobbies) {
     return res.json({ hobbies });
@@ -24,7 +20,7 @@ router
 })
 
 /* GET a hobby by name. */
-.get('/byName', cors(corsOptions), async (req, res) => {
+.get('/byName', async (req, res) => {
   const hobby = await Hobby.findOne( {
     name: req.query.name
   })
@@ -37,7 +33,7 @@ router
   }
 })
 
-.get('/byId', cors(corsOptions), async (req, res) => {
+.get('/byId', async (req, res) => {
   const hobby = await Hobby.findOne( {
     _id: req.query.id
   })

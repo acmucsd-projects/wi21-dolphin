@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors');
 const Category = require('../models/category');
 
-const corsOptions = {
-  origin: "https://quizzical-brattain-02ca66.netlify.app"
-}
 
 router
 /* GET a category. */
-.get('/', cors(corsOptions), async (req, res) => {
+.get('/', async (req, res) => {
     const category = await Category.findOne( {
       name: req.query.name
     })
@@ -24,7 +20,7 @@ router
     })
     return res.json({ category });
 })
-.get('/all', cors(corsOptions), async (req, res) => {
+.get('/all', async (req, res) => {
   await Category.find({})
   .populate({
     path: 'hobbies',
