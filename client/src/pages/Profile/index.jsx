@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import EdiText from 'react-editext';
 import API from '../../API';
 import Post from "../../components/Post";
+import './style.css';
+import { useHistory } from "react-router-dom";
 
 function Profile(props) {
-
+    let history = useHistory();
     let [biographyText, setBiographyText] = useState("Enter your biography here!");
     const username = props.username;
     console.log(username);
@@ -50,15 +52,21 @@ function Profile(props) {
           console.log(error);
         })
     }
+
+    function handleLogout() {
+      history.push("/");
+    }
     
     return (
-    <div>
+    <div className="profile">
           
-          <EdiText
-          type='text'
-          value={biographyText}
-          onSave={saveBiography}
-        />
+          <div className="biography">
+            <EdiText
+              type='text'
+              value={biographyText}
+              onSave={saveBiography}
+            />
+          </div>
 
         <div className="left-component">
           <h2 className="profile-posts-title">Posts made by {username}</h2>
@@ -71,6 +79,10 @@ function Profile(props) {
                 <Post post={post} key={`post-${key}`} hobby={post.hobby.name} username={props.username}/>
             )
         })}
+      </div>
+
+      <div>
+        <button className="logout" onClick={handleLogout}>Logout</button>
       </div>
     </div>
 
