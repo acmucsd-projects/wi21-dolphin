@@ -44,8 +44,8 @@ const API = {
     postPost: function(username, content, hobby, title) {
         return axios.post(`${serverUrl}/posts?user_name=` + username + `&content=` + content + `&hobby=` + hobby + `&title=` + title);
     },
-    deletePost: function(hobby) {
-        return axios.delete(`${serverUrl}/posts?hobby=` + hobby);
+    deletePost: function(username, content, hobby) {
+        return axios.delete(`${serverUrl}/posts?user_name=` + username + `&content=` + content + `&hobby=` + hobby);
     },
     signIn: function(user, pwd) {
         return axios.post(`${serverUrl}/users/signin?user=` + user + `&pwd=` + pwd);

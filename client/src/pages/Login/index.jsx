@@ -30,6 +30,8 @@ function Login(props) {
       } else {
         setError("Something went wrong. Please try again later.");
       }
+
+      alert("Username and/or password is incorrect. Please try again");
     })
     /*if (username.value === "" || password.value === "") {
       alert("Username and password sections cannot be blank");

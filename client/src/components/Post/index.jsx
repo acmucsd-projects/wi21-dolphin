@@ -76,6 +76,29 @@ function Post(props) {
         }
     }
 
+    function deletePost() {
+        if (username !== props.post.user_name) {
+            alert("You cannot delete another person's post!");
+            return;
+        }
+
+        API.deletePost(username, props.post.content, props.hobby)
+        .then((response) => {
+            console.log("Successfully deleted post!");
+        })
+        .catch(err => {
+            if (err.response) {
+                console.log("Client received an error response");
+            } else if (err.request) {
+                console.log("Client never received a response, or request never left");
+            } else {
+                console.log("Something else went wrong");
+            }
+        })
+
+        window.location.reload();
+    }
+
     return (
         <div className="post-container">
             <div className="like-component">
@@ -87,6 +110,10 @@ function Post(props) {
                     )}
                     <p className="num-likes">{numLikes}</p>
                 </div>
+
+            <div className="delete-component">
+                <button type="button" onClick={deletePost}>Delete Post</button>
+            </div>
             </div>
             
             <div className="post-component">
