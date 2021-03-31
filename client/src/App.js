@@ -23,7 +23,7 @@ import API from './API';
 function App() {
 
   const [authLoading, setAuthLoading] = useState(true);
-  const [username, setUsername] = useState(null);
+  const [username, setUsername] = useState("Sumadhwa13");
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
