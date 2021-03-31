@@ -89,8 +89,8 @@ if (authLoading && getToken()) {
     return(
       item.hobbies.map((hobby, index) => {
         return(
-          <Route key={index} exact path={`/new_post/${hobby}`}>
-            <NewPost key={index} hobby={hobby} username={username}/>
+          <Route key={index} exact path={`/new_post/${hobby.name}`}>
+            <NewPost key={index} hobby={hobby.name} username={username}/>
           </Route>
         )
       })
