@@ -26,6 +26,8 @@ function App() {
   const [username, setUsername] = useState(null);
 
   useEffect(() => {
+
+    console.log("The useEffect in App.js is running");
     const token = getToken();
     if (!token) {
       return;
@@ -36,13 +38,17 @@ function App() {
       setUserSession(response.data.token, response.data.user);
       setUsername(response.data.user.username);
       setAuthLoading(false);
+
+      console.log("useEffect then")
     })
     .catch((error) => {
       removeUserSession();
       setAuthLoading(false);
+
+      console.log("useEffect catch")
     });
 
-  }, []);
+  }, [getToken]);
 
 if (authLoading && getToken()) {
   return <div className="content">Checking Authentication...</div>
@@ -81,9 +87,7 @@ if (authLoading && getToken()) {
             <FrontPage />
           </Route>
           <PublicRoute exact path="/login" component={Login} />
-          <Route exact path="/signin">
-            <SignIn />
-          </Route>
+          <PublicRoute exact path="/signin" component={SignIn} />
         <div>
           <Navbar />
           <Route exact path="/home">

@@ -31,7 +31,7 @@ function SignIn() {
         console.log("Something wrong happened");
       });
 
-      history.push('/home');
+      history.push('/login');
     }
   }
  

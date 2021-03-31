@@ -18,6 +18,9 @@ function Post(props) {
     
     
     useEffect(() => {
+
+        console.log("The useEffect in Profile is running")
+
         API.getUser(username)
         .then((response) => {
             console.log(response.data.user);

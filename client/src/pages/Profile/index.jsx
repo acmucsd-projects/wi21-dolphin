@@ -20,6 +20,8 @@ function Profile(props) {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
+
+      console.log("The useEffect in Profile is running")
         
       API.getPostsUser(username).then((response) => {
           console.log(response);

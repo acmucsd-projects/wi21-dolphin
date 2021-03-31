@@ -21,6 +21,7 @@ function Login(props) {
       setLoading(false);
       setUserSession(response.data.token, response.data.user);
       history.push('/home');
+      window.location.reload();
     })
     .catch((err) => {
       setLoading(false);
