@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // ADD THIS
 
-const serverUrl = "http://localhost:5000";
+const serverUrl = "https://hobbyinc.herokuapp.com";
 
 const API = {
     getAllHobbies: function() {
