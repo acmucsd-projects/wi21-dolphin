@@ -80,6 +80,7 @@ function Post(props) {
         API.deletePost(username, props.post.content, props.hobby)
         .then((response) => {
             console.log("Successfully deleted post!");
+            window.location.reload();
             props.handleRerender();
         })
         .catch(err => {
