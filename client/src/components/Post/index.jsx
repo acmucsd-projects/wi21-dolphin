@@ -81,7 +81,6 @@ function Post(props) {
         .then((response) => {
             console.log("Successfully deleted post!");
             window.location.reload();
-            props.handleRerender();
         })
         .catch(err => {
             if (err.response) {

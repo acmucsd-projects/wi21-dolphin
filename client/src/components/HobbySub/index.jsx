@@ -7,12 +7,6 @@ import './style.css';
 function HobbySub(props) {
     // an array of posts
     const [posts, setPosts] = useState([]);
-    const [, forceUpdate] = useReducer(x => x + 1, 0);
-
-    const handleRerender = () => { // the callback. Use a better name
-        console.log("rerendering");
-        forceUpdate();
-    };
 
     useEffect(() => {
         API.getPostsHobby(props.hobby).then((response) => {
@@ -52,7 +46,7 @@ function HobbySub(props) {
                 <div className="hobby-sub-posts">
                     {posts.map((post, key) => {
                         return (
-                            <Post post={post} key={`post-${key}`} hobby={props.hobby} username={props.username} handleRerender={handleRerender}/>
+                            <Post post={post} key={`post-${key}`} hobby={props.hobby} username={props.username} />
                         )
                     })}
                 </div>
