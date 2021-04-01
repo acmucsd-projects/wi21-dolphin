@@ -77,11 +77,6 @@ function Post(props) {
     }
 
     function deletePost() {
-        if (username !== props.post.user_name) {
-            alert("You cannot delete another person's post!");
-            return;
-        }
-
         API.deletePost(username, props.post.content, props.hobby)
         .then((response) => {
             console.log("Successfully deleted post!");
@@ -96,8 +91,6 @@ function Post(props) {
                 console.log("Something else went wrong");
             }
         })
-
-        //window.location.reload();
     }
 
     return (
@@ -113,7 +106,10 @@ function Post(props) {
                 </div>
 
                 <div className="delete-component">
-                    <button type="button" onClick={deletePost} className="delete">Delete</button>
+                    {username === props.post.user_name ? (
+                        <button type="button" onClick={deletePost} className="delete">Delete</button>
+                    ) : null
+                    }
                 </div>
             </div>
             
